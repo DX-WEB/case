@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>测试canvas的图像合成功能</title>
+    <style type="text/css">
+        #canvas_img{
+            /*display: none;*/
+        }
+    </style>
+</head>
+    
+<body>
+    <h3>canvas合成的图片：</h3>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <h3>接收canvas返回的图片地址：</h3>
+    <img id="canvas_img"/>
+    <script type="text/javascript">
+    function draw() {
+        var slice =document.getElementById("slice");
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        var canvas_img = document.getElementById("canvas_img");
+        var img1 = new Image();
+        var img2 = new Image();
+        img1.src = 'test1.png';
+        img2.src = 'test2.png';
+        img1.onload = function() {
+            ctx.drawImage(img1, 0, 0,300,300);
+            ctx.drawImage(img2, 0, 0,50,50);
+        }
+        // img2.onload = function() {
+        //     ctx.drawImage(img2, 50, 0,100,100);
+        // }
+        img_url = canvas.toDataURL("image/png");
+        // console.log(img_url);
+        canvas_img.setAttribute("src",img_url);
+    }
+    draw();
+    </script>
+</body>
+
+</html>

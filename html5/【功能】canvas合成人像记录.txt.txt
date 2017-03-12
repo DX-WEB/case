@@ -1,0 +1,5 @@
+流程：
+  1.canvas传入人像照片
+  2.canvas合成快来贷图片到人像照片
+  3.canvas讲合成的图片输出dataURL
+  4.服务器保存合成图片的dataURL
